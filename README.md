@@ -82,6 +82,21 @@ Run locally:
 ./scripts/generate-manifest.ps1
 ```
 
+## Release Model
+
+- Use tagged releases for corpus snapshots, for example `v2026-07-corpus`.
+- Treat each tagged snapshot as a reproducible dataset version for training, evaluation, and citation.
+- Keep [manifest.jsonl](manifest.jsonl) with the release so automated consumers have a machine-readable index of record.
+- If article content changes, regenerate the manifest and create a new tagged snapshot.
+
+## Consumer Contract
+
+- [posts-md](posts-md) is the canonical article corpus.
+- [topics.md](topics.md) is the human-oriented navigation index.
+- `Originally posted:` in each article is the source URL of record.
+- One article lives in one markdown file at a stable path.
+- Temporary conversion inputs and source exports are not part of the published dataset.
+
 ## Intended Use
 
 This repository is designed to support:
