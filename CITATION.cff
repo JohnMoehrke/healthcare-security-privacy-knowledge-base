@@ -1,0 +1,23 @@
+cff-version: 1.2.0
+message: "If you use this corpus, please cite it using the metadata below."
+title: "Healthcare Security & Privacy Knowledge Base"
+version: "main"
+date-released: "2026-07-30"
+license: "CC0-1.0"
+repository-code: "https://github.com/JohnMoehrke/healthcare-security-privacy-knowledge-base"
+url: "https://github.com/JohnMoehrke/healthcare-security-privacy-knowledge-base"
+keywords:
+  - healthcare security
+  - privacy
+  - interoperability
+  - FHIR
+  - IHE
+  - audit
+abstract: >-
+  A CC0-licensed markdown corpus of healthcare security, privacy,
+  interoperability, identity, consent, audit, and related standards
+  discussion authored by John Moehrke.
+authors:
+  - family-names: Moehrke
+    given-names: John
+    name: John Moehrke

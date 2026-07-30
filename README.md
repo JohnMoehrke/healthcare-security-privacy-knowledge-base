@@ -7,6 +7,8 @@ All repository content is released under CC0 (public domain dedication) to enabl
 ## Repository Layout
 
 - [README.md](README.md): project overview
+- [DATASET.md](DATASET.md): dataset card and corpus summary
+- [CITATION.cff](CITATION.cff): citation metadata for tools and researchers
 - [topics.md](topics.md): consolidated topic index page in markdown
 - [posts-md](posts-md): one markdown file per blog article, at repo root
 
