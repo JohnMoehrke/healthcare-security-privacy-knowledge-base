@@ -1,0 +1,95 @@
+﻿# Basic DS4P - How to set the confidentialityCode
+
+Originally posted: https://healthcaresecprivacy.blogspot.com/2019/02/basic-ds4p-how-to-set.html
+Published: 2019-02-20T16:20:00Z
+Updated: 2019-02-20T16:20:02.418Z
+Author: John Moehrke
+
+---
+
+I have covered the [vision of Data Segmentation for Privacy (DS4P)](https://healthcaresecprivacy.blogspot.com/2019/02/what-is-ds4p.html) concept, and [outline how a Security Labeling Service (SLS)](https://healthcaresecprivacy.blogspot.com/2019/02/segmenting-sensitive-health-topics.html) would enable this grandiose vision of DS4P.
+
+However, there are stepping stones: The following is a slightly update on an article I wrote in July 2015 on [how to set the confidentialityCode](https://healthcaresecprivacy.blogspot.com/2015/07/how-to-set-confidentialitycode.html).  I have used **bold/underbar** to indicate where I enhanced the original text.
+
+The problem then, as it is today, the confidentialityCode value that everyone uses is "N" (Normal confidentiality). Which does not help for Data Segmentation nor Privacy.
+
+**The recommendation I give here is restricted to the gross level: for Document Sharing at the XDS/XCA/DocumentReference metadata level;  for FHIR REST at the returned Bundle.meta.security level, but not on each Resource in the Bundle; and for CDA at the CDA header, but not on each element. Going deeper is possible, but not what I am trying to drive as the next step beyond "N".**
+
+**
+**
+**Some background articles:**
+
+- [Healthcare Privacy and Security Classification System (HCS)](http://healthcaresecprivacy.blogspot.com/2014/01/recirculation-ballot-of-hl7-healthcare.html)
+
+- [Data Classification - a key vector enabling rich Security and Privacy controls](http://healthcaresecprivacy.blogspot.com/2010/08/data-classification-key-vector-through.html)
+
+- and other articles on my [topics page](http://healthcaresecprivacy.blogspot.com/p/topics.html)
+
+Recommendation for setting confidentiatlityCode
+
+So. I would continue to recommend that anyone or any-system publishing **health data such as FHIR resources, FHIR documents, and **CDA documents should use "N", unless they have evidence to say that is the wrong value. Meaning it should be a specific effort to choose the other values:
+
+- "R", because there is specifically sensitive content â€“ HIV, alcohol/drug abuse, etc.
+
+- "V", because the content should be seen only when reader is individually authorized -- psychology-notes, usually also used on all VIP patients (Not a best practice, but reality).
+
+- "M", because the content is less sensitive than normal, but still medical. authorized for wide distribution â€“ like an emergency-data-set, or for dietary use-cases
+
+- "L", because the content is not medical, or has been de-identified
+
+- "U", because the content is not specific to an individual and is public
+
+This is right out of the definition of the vocabulary values 2.16.840.1.113883.5.25 for "_confidentiality". Available from the FHIR specification for easy reading. [https://www.hl7.org/fhir/v3/Confidentiality/index.html](https://www.hl7.org/fhir/v3/Confidentiality/index.html)
+
+How to determine what the value should be?
+I don't disagree that this is a hard thing to determine.
+
+- It might be determined by workflow, psychology notes clearly are coming from a psychology workflow.
+
+- Clearly de-identification is a specific workflow.
+
+- It might be an explicit act, where the user is specifically trying to make a less-sensitive document for broad use such as a emergency-dataset, or
+
+- for export to the dietitian.
+
+-  It might be a specific request, where the clinician decides that the data is very sensitive, or
+
+- where the patient decides that the data is very sensitive.
+
+This is different than a patient choice in consent regarding rules applied to these different codes, meaning where a patient chooses a restrictive consent for their data accessibility. See [http://healthcaresecprivacy.blogspot.com/p/topics.html#Privacy](http://healthcaresecprivacy.blogspot.com/p/topics.html#Privacy)
+
+The VHA has shown some success in demonstration projects with passing the data through **a Security Labeling Service (SLS) that leverages Natural Language Processing and ** CDS (Clinical Decision Support) to tag sensitive clinical concepts. See [FHIR Demonstration of DS4P](http://healthcaresecprivacy.blogspot.com/2013/10/fhir-demonstration-of-ds4p.html) _(sorry the video is lost)_. If none are found then the data is "N", if some are found then the data is "R", if specific types are found the data is "V"â€¦ This automated method has me somewhat worried as the social norms of what is sensitive, change often. So using this automated form on publication time might produce wrong evaluation overtime. In the case of the VHA demonstration, they applied it upon 'use' of the data, so it was using the social norms rules at the time of reading. Likely better social norm rules, but not sure this is better behavior. Note that the intermediate step is tagged sensitivity category, which might be given to the access control system as information to be used in the access control decision or enforcement
+
+Is there more?
+All the other security-tags are not likely to be set upon publication. IHE has brought in the whole of  the "[Healthcare Privacy/Security Classification System](http://healthcaresecprivacy.blogspot.com/2014/01/recirculation-ballot-of-hl7-healthcare.html)"
+
+- IHE specifically recommends against using the sensitivity category, as the value itself is sensitive. They are useful for internal use, like the VHA demonstration.
+
+- Compartment is mostly undefined, but would likely be a local value-set. Unlikely to be understood at publication time. Interesting place to play, as it might be used to define compartments like Radiology, Cardiology, Psychology, etc... but it is untested grounds.
+
+- **More likely it is used to tag specific authorized Research projects by name**
+
+- Integrity could be equally set by the publisher, although it is not well enough defined. But this would be a way to tag data that was generated by the patient, vs data generated by a licensed clinician.
+
+- Handling caveats might be set on publication. The only cases I can think of are similar to the "V" cases, in that the author explicitly knows something about the data and thus needs to add a caveat.
+
+- One specific example is 42CFR Part 2 â€“ SAMSA covered treatment- that must be explicitly marked with a 'do not disclose without explicit authorization by the patient'. **NOAUTH**
+
+- Second specific example is an obligation to delete after use, which specifically forbids persistence (including printing) **DELAU**
+
+Conclusion
+
+So, simple guidance. You need all of the _confidentiality vocabulary, and two more from the handling caveats. -- [U, L, M, N, V, R] + NOAUTH + DELAU
+
+**Blog articles by [Topic](http://healthcaresecprivacy.blogspot.com/p/topics.html)**
+
+- [Patient Privacy Controls](http://healthcaresecprivacy.blogspot.com/p/topics.html#Privacy)
+
+- [Access Control (including Consent Enforcement)](http://healthcaresecprivacy.blogspot.com/p/topics.html#AC)
+
+- [Document Sharing Management (Health Information Exchange - HIE)](http://healthcaresecprivacy.blogspot.com/p/topics.html#HIE)
+
+- [Segmenting Sensitive Health Topics](https://healthcaresecprivacy.blogspot.com/2019/02/segmenting-sensitive-health-topics.html)
+
+- [What is DS4P?](https://healthcaresecprivacy.blogspot.com/2019/02/what-is-ds4p.html)
+

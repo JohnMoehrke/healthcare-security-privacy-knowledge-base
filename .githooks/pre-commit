@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+set -eu
+
+# Block known-sensitive and conversion-only artifacts from being committed.
+staged_files="$(git diff --cached --name-only --diff-filter=ACMR)"
+
+if [ -z "$staged_files" ]; then
+  exit 0
+fi
+
+blocked='^(Blogger/|takeout-.*\.zip$|_tmp_.*\.html$)'
+
+violations="$(printf '%s\n' "$staged_files" | grep -E "$blocked" || true)"
+
+if [ -n "$violations" ]; then
+  echo "ERROR: Commit blocked. Sensitive or non-distribution artifacts are staged:"
+  printf '%s\n' "$violations"
+  echo "\nRemove these files from staging before committing."
+  echo "Expected distributable content is the markdown corpus and indexes."
+  exit 1
+fi
+
+exit 0

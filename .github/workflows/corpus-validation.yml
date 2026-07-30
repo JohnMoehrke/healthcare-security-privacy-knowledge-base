@@ -1,0 +1,29 @@
+name: Corpus Validation
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+jobs:
+  validate:
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate corpus
+        shell: pwsh
+        run: ./scripts/validate-corpus.ps1
+
+      - name: Generate manifest
+        shell: pwsh
+        run: ./scripts/generate-manifest.ps1
+
+      - name: Upload manifest artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: manifest-jsonl
+          path: manifest.jsonl

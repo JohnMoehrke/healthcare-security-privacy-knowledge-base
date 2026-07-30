@@ -1,0 +1,19 @@
+﻿# Electronic health records could be a deadly target during a cyberwar
+
+Originally posted: https://healthcaresecprivacy.blogspot.com/2009/11/electronic-health-records-could-be.html
+Published: 2009-11-27T20:21:00Z
+Updated: 2009-11-27T20:21:52.989Z
+Author: John Moehrke
+
+---
+
+There is so much FUD being passed around on the 'hill'. Much of this is due to lack of spending time reading the specifications. In the [attached article](http://www.nextgov.com/nextgov/ng_20091120_8634.php) "Chad Skidmore" is quoted as worring that an attacker 'could' get into a system and change the clinical values thus resulting in a patient receiving the wrong treatment. I am not going to try to say that the risk is zero, but I would certainly not loose sleep over this one. There are many controls in place that prevent this threat from being realized.
+
+Given that my blog is about Security and Privacy, I will focus on the technical measures. But there are plenty of Policy, Procedure, Protocol, and Human factors that are in play. Let me discuss the HIE solution that has been selected by HITSP. First I will discuss [HITSP/SC112](http://wiki.hitsp.org/docs/SC112/SC112-1.html), specifically [HITSP/TP13](http://wiki.hitsp.org/docs/TP13/TP13-1.html), specifically [IHE/XDS (Cross-Enterprise Document Sharing)](http://wiki.ihe.net/index.php?title=Cross-Enterprise_Document_Sharing), in this system there is a single Registry that holds metadata about each document that has been registered, and one or more Repository systems that hold the documents. The typical implementation would have a Repository in each sourcing organization, meaning that there would be a Repository in every clinic and hospital participating in an HIE . For each document in these Repositories there is metadata in the Registry, of this metadata is a byte-size and a SHA1 hash. Thus, for the threat that Chad brings up, someone would have to get access to the Repository to change the document, in a way consistent with CDA rules; and also update the Registry. They would need to do this all without causing [Security Audit Events,](http://wiki.hitsp.org/docs/SC109/SC109-1.html)which is a topic I will post on soon.
+
+Now, some will say say that attacking both systems is possible. For you, I would offer yet another mitigation that HITSP offers, [HITSP/C26](http://wiki.hitsp.org/docs/C26/C26-1.html) which is another document entry that is related to the clinical document and is an XML-Digital Signature. Thus the attacker would need to compromise the Registry, Repository, and falsify a Digital Signature; all while not creating Audit Events.
+
+And I am sure others will recognize that the transactions are protected by [HITSP/T17](http://wiki.hitsp.org/docs/T17/T17-1.html), otherwise known as mutual-authenticated-TLS. Thus attacking the data on the publication or the consumption side would be very difficult. (Yes I will tip my hat to, [CVE-2009-3555](http://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2009-3555), the man-in-the-middle attack now being frantically worked on by the TLS community. We might get a TLS 1.3 out of this and this might drive implementation).
+
+Now, if a lesser system is used to build an HIE then the above can't be said. I know many are asking for a more simple approach. I would like to submit this very small 'Threat', as being a good example of the risk assessments that were considered as part of IHE XDS (see [IHE ITI TF Vol 2x Appendix K](http://www.ihe.net/Technical_Framework/upload/IHE_ITI_TF_6-0_Vol2x_FT_2009-08-10.pdf)). This should be seen as proof that IHE did consider a Risk Assessment when designing XDS. This 'Threat' may be mostly FUD, but it is one that I know is on the minds of Clinical people that are being expected to use the data when treating their patients. This is not a Threat to be taken lightly, event if it is handled nicely by the Infrastructure.
+

@@ -1,0 +1,22 @@
+﻿# Technology Churn as a distraction
+
+Originally posted: https://healthcaresecprivacy.blogspot.com/2012/05/technology-churn-as-distraction.html
+Published: 2012-05-25T20:25:00.004Z
+Updated: 2012-05-25T20:25:54.199Z
+Author: John Moehrke
+
+---
+
+_Guest blog by Karen Witting, co-chair of the IHE ITI Planning Committee _
+A few years ago the focus of a lot of Healthcare Standards and Policy discussion was which technology was the â€œbestâ€ for health information exchange.  There is no question that groups have their preferences, be it REST or SMTP or Web Services or some other technology which promises either simplicity or security or whatever the hot need of the moment is.  But finally I think the most significant problem is beginning to being addressed when I look at the [Request for Information (RFI) on Governance of the Nationwide Health Information Network](https://www.federalregister.gov/articles/2012/05/15/2012-11775/nationwide-health-information-network-conditions-for-trusted-exchange).  The fundamental inhibitor to real deployment of Health Information Exchange is governance and trust.  Discussion and debate on choosing the best technology is a distraction from the most important problem to be solved.
+
+In addition to some very insightful comments on the RFI on Governance, the HIT Standards Committee NwHIN Power Team is in the process of developing a detailed set of criteria for evaluating the readiness of technical specifications.  This assessment puts a high value on things like ease of implementation, deployment and operation.  This assessment focus is supported by the general belief that the best technology for health information exchange is the one that has been or is being deployed.  But listening to them debate how to judge this, points out how incredibly hard it is to assess.   Each camp has its â€œproofâ€ that its technology is most deployed, or most â€œeasyâ€ to deploy based on various beliefs and vague statistics.  There is no hard science here.  There are no independent surveys of this.  It is largely speculation and opinions expressed by people
+
+ For me the scariest part is that despite being an expert on several technical specifications, including their deployment, I would not be comfortable assessing most of the â€œeaseâ€ attributes listed in their [Appendix A](http://healthit.hhs.gov/portal/server.pt/document/957863/application_vnd_ms-powerpoint) .  Assessment is good and healthy but letâ€™s not get lost in the weeds.  For example, for â€œEase of Implementation/Deployment â€“ Metricsâ€ (slide 25) they have listed Deployment Costs.  Their metrics relate to how much a deployment exceeded its original estimates of costs.  How  would we be able to get unbiased data to support this metric?  Even if a project was completely honest about how much it estimated and how much the final cost was, how do we tease apart the increase that came from the particular technology we are discussing, versus costs that increased because they underestimated how much money would be needed to pay lawyers, architects, re-education of staff, etc.  Deployment projects are too complex to provide real metrics on one particular aspect of the deployment.  So this becomes a very subjective measure.  Most of the â€œeaseâ€ metrics are scary in the level of detail requested.  â€œEaseâ€ will always be subjective and is much more an aspect of the knowledge level, skill and capability of the people involved then any technology applied.  Having worked as a programmer for 25 years I can say that Java was â€œeasierâ€ than C++, and I can also say that many people will disagree with me.
+
+Coming back to my point.  Technology churn is a distraction from the real work that needs to be done.  Letâ€™s focus on getting some good governance and trust models adopted in this country.  Stop fighting over the technology.  We have plenty of good technology already identified and in the process of being adopted.  The only â€œeaseâ€ assessment needed is whether a deployment project desires it.  Certify the ones that people are asking for.  Move on to more important matters.
+
+IBM disclaimer:  "This postings is Karen's personal opinion and don't necessarily represent IBM's positions, strategies or opinions."
+
+_(Comment from John: I have not yet read the RFI, yup too busy with more important things, But what I hear sounds like a good direction but too deep for Governance)_
+

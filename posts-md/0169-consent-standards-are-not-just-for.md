@@ -1,0 +1,21 @@
+﻿# Consent standards are not just for consent
+
+Originally posted: https://healthcaresecprivacy.blogspot.com/2010/03/consent-standards-are-not-just-for.html
+Published: 2010-03-11T20:15:00Z
+Updated: 2010-03-11T20:15:12.789Z
+Author: John Moehrke
+
+---
+
+As we have been building the Privacy Consent standards I am always mindful of some extra usecases that this concept could enable and thus I am always pushing for the standards to support it.
+
+The basic Privacy Consent could get away with simply supporting a Healthcare Provider to get an acknowledgment from the Patient fulfilling the HIPAA Consent requirements. This is a very low bar, and indeed would not require anything as HIPAA sets up an implied consent environment. This Implied consent environment states that the Healthcare Provider needs to publish their Privacy Policy, and that if the patient didn't like the conditions of the published Privacy Policy they can find a Healthcare Provider that has a Privacy Policy that meets their needs. Meaning that by the Patient choosing to be treated at that Healthcare Provider they are 'implicitly' agreeing to the posted Privacy Policy.   In this environment, we need at best an OPT-OUT policy to indicate that the Patient has changed their mind and nolonger wants that data shared according to the posted Privacy Policy. The meaning of this OPT-OUT policy would have also been spelled out in the posted Privacy Policy, so limited effectivity.
+
+We know that there are states that require more than this. So we require that the Privacy Consent standards need to support OPT-IN environments, where the Patient must show evidence that they agree with the Privacy Policy. We need to support OPT-IN environments, where there are limits on how long the data can be used (e.g. for the specific episode of care and no longer). We need to support OPT-IN into a special-case sharing environment, such as a referral to a specialist. Etc.. These are all examples of the kinds of Privacy Policies typically seen as "Consent".
+
+The case that HITSP was most reciently working on is a case where a Privacy Policy "Preference" is published by the Patient. Thus they have a mechanism to publish what they would 'like' to have done with their data. This is a self-declaration, and thus is not really a Privacy Consent as there is no data holder that is agreeing to the policy. But it is an important thing that must be able to be communicated. In this way any future Privacy Consent policies can be partially automated or pre-populated with the portions of the patients Privacy Policy "Preferences". Thus getting closer to what the Patient really wants.
+
+The special cases that I am thinking of are those that go beyond treatment. In an article about the HIT Policy Committees discussions "[Panel Weighs Strategies for Balancing Health IT Privacy, Research Goals](http://www.ihealthbeat.org/articles/2010/3/11/panel-weighs-strategies-for-balancing-health-it-privacy-research-goals.aspx)", there is mention from Don Detmer asking for support that would allow a Patient to explicitly allow data to flow to Researchers. Unfortunately Jodi Daniel is quoted as saying that this would be "difficult". The idea is that some patients are very interested in advancing medicine by donating their information. Some are like John Halamka and donate not only their whole health history but also their Gene sequence. I know that my Mother would love if people could learn something from her medical history, as am I. These kind of people would love for the research to help them, but are more interested in contributing to medical advances.
+
+Although I want the Patient Privacy Policy (Consent) to advance step at a time, going for 'good enough' and not waiting for 'perfection'. I think that what we have today can support quite a few use-cases without much difficulty. These standards are not perfect by any means, but we need to use them. See also: . [Consumer Preferences and the Consumer](http://healthcaresecprivacy.blogspot.com/2009/10/consumer-preferences-and-consumer.html), [Opt-In, Opt-Out.... Don't publish THAT!](http://healthcaresecprivacy.blogspot.com/2009/10/opt-in-opt-out-dont-publish-that.html), [RHIO: 100,000 Give Consent.](http://healthcaresecprivacy.blogspot.com/2009/12/rhio-100000-give-consent.html)
+
